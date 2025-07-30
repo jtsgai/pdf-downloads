@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传唱《传灯》- 华族传统族谱文化传承</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c1810;
+            line-height: 1.8;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(185, 158, 109, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(165, 42, 42, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid #d4af37;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #a52a2a 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="traditional" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23traditional)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .title {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .book-info {
+            background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 2px 10px rgba(212, 175, 55, 0.1);
+        }
+        
+        .author {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #8b0000;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 15px;
+        }
+        
+        .value-section {
+            margin-bottom: 40px;
+        }
+        
+        .value-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        
+        .value-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(139, 0, 0, 0.05);
+            border-left: 4px solid #d4af37;
+            border-radius: 8px;
+        }
+        
+        .value-item h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #8b0000;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .value-item p {
+            margin-bottom: 10px;
+        }
+        
+        .value-item ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .value-item li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .value-item li::before {
+            content: '◆';
+            color: #d4af37;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .sg60-highlight {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.3);
+            margin: 30px 0;
+        }
+        
+        .sg60-highlight h4 {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            color: white;
+        }
+        
+        .sg60-highlight p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .sg60-final {
+            text-align: center !important;
+            font-size: 1.1em !important;
+            font-weight: 700;
+            margin-top: 20px !important;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #f8f6f0 0%, #ede8de 100%);
+            border: 3px solid #d4af37;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .download-icon {
+            font-size: 4em;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .download-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 15px;
+        }
+        
+        .file-info {
+            background: rgba(139, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #d4af37;
+        }
+        
+        .file-detail {
+            display: inline-block;
+            margin: 5px 15px;
+            font-weight: 600;
+            color: #8b0000;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #8b0000 0%, #a52a2a 100%);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 25px;
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border: 2px solid #d4af37;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(139, 0, 0, 0.4);
+            background: linear-gradient(135deg, #a52a2a 0%, #8b0000 100%);
+        }
+        
+        .qr-note {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            font-size: 0.95em;
+            color: #6b4e00;
+            border: 1px dashed #d4af37;
+        }
+        
+        .footer {
+            background: #2c1810;
+            color: #d4af37;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+        }
+        
+        .decorative-border {
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37 0%, #8b0000 50%, #d4af37 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .download-section {
+                padding: 30px 20px;
+            }
+            
+            .download-btn {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorative-border"></div>
+        
+        <div class="header">
+            <div class="header-content">
+                <h1 class="title">传唱《传灯》</h1>
+                <p class="subtitle">为宣扬华族传统族谱文化</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="book-info">
+                <div class="author">
+                    新加坡根缘文化学会 会长 陈业雄 著
+                </div>
+                
+                <div class="value-section">
+                    <h3 class="value-title">📚 《传灯》价值与背景精要</h3>
+                    
+                    <div class="value-item">
+                        <h4>🎯 核心价值</h4>
+                        <p>陈业雄会长这部著作是<strong>华人家谱建修的权威指南</strong>，系统阐述了传统族谱的编制规范、昭穆制度和文化内涵，为海外华人寻根溯源提供了专业的理论基础和实践方法。</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <h4>🌏 时代背景</h4>
+                        <p>在新加坡多元文化环境下，华人文化传承面临<strong>地理分散、语言变迁、知识断代</strong>等挑战。这本书承载着<strong>文化抢救</strong>的使命，帮助华人社区在全球化浪潮中保持文化根脉。</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <h4>💡 对AI建修家谱的指导意义</h4>
+                        <ul>
+                            <li><strong>技术标准</strong>：为AI系统提供严格的传统格式规范</li>
+                            <li><strong>质量基准</strong>：确保技术创新不偏离文化本质</li>
+                            <li><strong>价值传承</strong>：让现代科技成为文化传承的助力</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="sg60-highlight">
+                    <h4>🎉 恭迎SG60特别意义</h4>
+                    
+                    <p>正值<strong>新加坡建国60周年</strong>这一历史性时刻，华人文化传承更具特殊意义。</p>
+                    
+                    <p>三代移民在这片土地上扎根发展，家族记忆见证了国家成长历程。</p>
+                    
+                    <p>通过AI技术传承家族文化，既是对先辈的致敬，也是对未来的承诺。</p>
+                    
+                    <p class="sg60-final"><strong>让传统文化在SG60新起点上，借助AI翅膀飞向更远的未来！</strong></p>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <div class="download-icon">📜</div>
+                <h2 class="download-title">下载珍贵典籍</h2>
+                <p>点击下方按钮，免费下载《传灯》完整版</p>
+                
+                <div class="file-info">
+                    <span class="file-detail">📄 格式：PDF</span>
+                    <span class="file-detail">📊 大小：13.3MB</span>
+                    <span class="file-detail">📖 类型：扫描版</span>
+                </div>
+                
+                <a href="../files/chuandeng-genealogy-guide.pdf" class="download-btn" download>
+                    📥 立即下载传灯录
+                </a>
+                
+                <div class="qr-note">
+                    💡 <strong>分享提示：</strong>您可以将此页面的二维码分享给家族成员或对家谱文化感兴趣的朋友。扫码即可直接访问下载页面，传承珍贵的文化典籍。
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🏮 传承华族文化 · 续写家族传奇 🏮</p>
+            <p>新加坡根缘文化学会 · 文化传承项目</p>
+        </div>
+        
+        <div class="decorative-border"></div>
+    </div>
+</body>
+</html>
