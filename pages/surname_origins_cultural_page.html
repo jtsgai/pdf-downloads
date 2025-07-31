@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华族十大姓氏起源 - 道家文化与族谱传承</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c1810;
+            line-height: 1.7;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(185, 158, 109, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(165, 42, 42, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid #d4af37;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #a52a2a 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="traditional" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23traditional)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .title {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .lecture-info {
+            font-size: 0.9em;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro-section {
+            background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 2px 10px rgba(212, 175, 55, 0.1);
+            text-align: center;
+        }
+        
+        .intro-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .surnames-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .surname-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .surname-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .featured-surname {
+            border: 3px solid #d4af37;
+            background: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
+            margin-bottom: 40px;
+        }
+        
+        .surname-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .surname-char {
+            font-size: 3em;
+            font-weight: 800;
+            color: #8b0000;
+            margin-right: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .surname-info h3 {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 5px;
+        }
+        
+        .surname-rank {
+            font-size: 0.9em;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .origin-section {
+            margin-bottom: 20px;
+        }
+        
+        .origin-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #a52a2a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .detail-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #8b0000;
+            margin-bottom: 8px;
+        }
+        
+        .detail-text {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .origin-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .origin-list li {
+            margin-bottom: 8px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .origin-list li::before {
+            content: '◆';
+            color: #d4af37;
+            position: absolute;
+            left: -15px;
+            font-weight: bold;
+        }
+        
+        .detailed-info,
+        .migration-info,
+        .famous-figures {
+            background: rgba(139, 0, 0, 0.03);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .cultural-info {
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .cultural-info h4 {
+            font-size: 1em;
+            font-weight: 600;
+            color: #8b0000;
+            margin-bottom: 8px;
+        }
+        
+        .cultural-info p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .related-section {
+            background: linear-gradient(135deg, #f8f6f0 0%, #ede8de 100%);
+            border: 3px solid #d4af37;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .related-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 20px;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .resource-item {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .resource-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #8b0000;
+        }
+        
+        .resource-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 10px;
+        }
+        
+        .resource-desc {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .qr-placeholder {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            border: 2px dashed #d4af37;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .qr-code {
+            font-size: 2em;
+            color: #8b0000;
+            margin-bottom: 8px;
+        }
+        
+        .qr-text {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #8b0000;
+            margin-bottom: 5px;
+        }
+        
+        .qr-url {
+            font-size: 0.85em;
+            color: #666;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+        
+        .qr-code-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 8px auto;
+            display: block;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background: #2c1810;
+            color: #d4af37;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+        }
+        
+        .decorative-border {
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37 0%, #8b0000 50%, #d4af37 100%);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .active-card {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 35px rgba(139, 0, 0, 0.2) !important;
+            border-color: #8b0000 !important;
+            border-width: 3px !important;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+            
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .title {
+                font-size: 1.8em;
+                line-height: 1.3;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+                line-height: 1.5;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .surnames-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .surname-card {
+                padding: 20px;
+            }
+            
+            .surname-header {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            
+            .surname-char {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .resource-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            .resource-item {
+                padding: 20px 15px;
+            }
+            
+            .resource-icon {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+            
+            .resource-name {
+                font-size: 1.1em;
+                margin-bottom: 8px;
+            }
+            
+            .resource-desc {
+                font-size: 0.9em;
+                margin-bottom: 15px;
+            }
+            
+            .qr-placeholder {
+                padding: 12px;
+            }
+            
+            .qr-code {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorative-border"></div>
+        
+        <div class="header">
+            <div class="header-content">
+                <h1 class="title">华族十大姓氏起源</h1>
+                <p class="subtitle">道家文化与族谱传承的智慧结晶</p>
+                <div class="lecture-info">
+                    配合"道家文化、AI修谱与易经"文化讲座 | 新加坡根缘文化学会
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="intro-section">
+                <h2 class="intro-title">🌸 姓氏文化的道家智慧</h2>
+                <p class="intro-text">姓氏承载着华族血脉传承的密码，每一个姓氏都蕴含着深厚的历史文化内涵。</p>
+                <p class="intro-text">从道家"道法自然"的视角看，姓氏起源体现了古人对天地人和谐统一的理解。</p>
+                <p class="intro-text">结合AI技术修谱，让传统文化在现代科技中焕发新的生命力。</p>
+            </div>
+            
+            <div class="surnames-grid" id="surnamesGrid">
+                <!-- 陈姓 - 重点展示 -->
+                <div class="surname-card featured-surname" data-surname="陈">
+                    <div class="surname-header">
+                        <div class="surname-char">陈</div>
+                        <div class="surname-info">
+                            <h3>陈氏</h3>
+                            <p class="surname-rank">中华第五大姓 | 海外华人第一大姓</p>
+                        </div>
+                    </div>
+                    
+                    <div class="origin-section">
+                        <h4 class="origin-title">📿 主要起源</h4>
+                        <ul class="origin-list">
+                            <li><strong>妫姓陈氏</strong>：周武王封舜帝后裔妫满为陈侯，建立陈国，子孙以国为姓称陈氏</li>
+                            <li><strong>少数民族改姓</strong>：南北朝鲜卑族侯莫陈氏随魏孝文帝迁都洛阳改姓陈，明朝蒙古贵族归顺赐姓陈</li>
+                            <li><strong>其他改姓</strong>：隋朝白永贵改姓陈，清朝满族陈佳氏改姓，台湾高山族归顺赐姓陈</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detailed-info">
+                        <h4 class="detail-title">🏛️ 历史发展脉络</h4>
+                        <p class="detail-text">得姓始祖陈胡公妫满，发源地河南省淮阳县。陈国立国600多年，公元前478年被楚国所灭。陈国灭亡后，部分陈氏后裔逃往齐国改姓田，田和篡齐建立田氏齐国，体现了华夏文化的包容性与适应性。</p>
+                    </div>
+                    
+                    <div class="cultural-info">
+                        <h4>🌸 文化内涵与传承</h4>
+                        <p><strong>郡望</strong>：颍川郡、汝南郡、下邳郡、广陵郡、东海郡、河南郡等</p>
+                        <p><strong>堂号</strong>：德星堂、三恪堂、颍川堂、汝南堂、忠节堂</p>
+                        <p><strong>文化传承</strong>：陈姓承载着舜帝"孝德"文化传统，在海外华人中人数最多，遍布东南亚各国，是维系海外华人文化认同的重要纽带。</p>
+                    </div>
+                    
+                    <div class="migration-info">
+                        <h4 class="detail-title">🌍 迁徙与分布</h4>
+                        <p class="detail-text"><strong>早期迁徙</strong>：春秋战国时期主要分布在河南、安徽一带。汉唐时期向南北各地扩散。<strong>海外分布</strong>：明清以来大量移居东南亚，在新加坡、马来西亚、菲律宾、泰国等地建立了众多陈氏宗亲会，成为海外华人最大姓氏群体。</p>
+                    </div>
+                    
+                    <div class="famous-figures">
+                        <h4 class="detail-title">🌟 历史名人</h4>
+                        <p class="detail-text">陈胜（秦末农民起义领袖）、陈平（汉初名相）、陈寔（东汉名士）、陈霸先（南朝陈朝开国皇帝）、陈友谅（元末农民起义领袖）、陈嘉庚（华侨教育家）等，各个时代都有杰出人物。</p>
+                    </div>
+                </div>
+                
+                <!-- 刘姓 - 使用陈氏格式 -->
+                <div class="surname-card featured-surname" data-surname="刘">
+                    <div class="surname-header">
+                        <div class="surname-char">刘</div>
+                        <div class="surname-info">
+                            <h3>刘氏</h3>
+                            <p class="surname-rank">中华第四大姓 | 帝王世家</p>
+                        </div>
+                    </div>
+                    
+                    <div class="origin-section">
+                        <h4 class="origin-title">🌟 主要起源</h4>
+                        <ul class="origin-list">
+                            <li><strong>祁姓刘氏</strong>：帝尧后裔，刘累善于养龙而得名，受封为御龙氏，后代以"刘"为姓</li>
+                            <li><strong>姬姓刘氏</strong>：周成王封王季之子于刘邑，其后裔以邑为氏，世代相传姓刘</li>
+                            <li><strong>赐姓刘氏</strong>：汉高祖刘邦赐姓娄敬、项伯等有功之臣，部分投降项氏家族改姓刘</li>
+                            <li><strong>改姓刘氏</strong>：北魏孝文帝迁都洛阳后，将鲜卑族独孤氏改为刘姓</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detailed-info">
+                        <h4 class="detail-title">🏛️ 历史发展脉络</h4>
+                        <p class="detail-text">刘姓自古以来不断迁徙，从最初的黄河中下游地区，逐渐向全国各地乃至海外迁移。汉代时主要分布在河南、河北、山东等地；魏晋南北朝时期开始向南方迁徙；唐宋时期已遍布全国；明清时期开始向海外移民。</p>
+                    </div>
+                    
+                    <div class="cultural-info">
+                        <h4>🏯 文化内涵与传承</h4>
+                        <p><strong>郡望</strong>：彭城、中山、南阳、沛郡、广平、河间、中山、梁郡</p>
+                        <p><strong>堂号</strong>：彭城堂、豢龙堂、藜照堂、中山堂、沛国堂</p>
+                        <p><strong>文化传承</strong>：刘姓以彭城刘氏最为著名，源出西汉皇族。"豢龙"体现了龙的图腾文化，象征着高贵的血统和卓越的品德。</p>
+                    </div>
+                    
+                    <div class="migration-info">
+                        <h4 class="detail-title">🌍 迁徙与分布</h4>
+                        <p class="detail-text"><strong>古代迁徙</strong>：秦汉时期主要在北方，南北朝后向江南发展。<strong>现代分布</strong>：广泛分布于全国各地，在山东、河南、江苏、四川等省份人口较多，海外华人中也有大量刘姓族人。</p>
+                    </div>
+                    
+                    <div class="famous-figures">
+                        <h4 class="detail-title">🌟 历史名人</h4>
+                        <p class="detail-text">刘邦（汉高祖）、刘秀（汉光武帝）、刘备（蜀汉昭烈帝）、刘向（西汉经学家）、刘禹锡（唐代诗人）、刘墉（清代书法家）等，历代帝王将相、文人学者辈出。</p>
+                    </div>
+                </div>
+                
+                <!-- 钟姓 - 使用陈氏格式 -->
+                <div class="surname-card featured-surname" data-surname="钟锺">
+                    <div class="surname-header">
+                        <div class="surname-char">钟</div>
+                        <div class="surname-info">
+                            <h3>钟氏（锺氏）</h3>
+                            <p class="surname-rank">客家大姓 | 多源流姓氏</p>
+                        </div>
+                    </div>
+                    
+                    <div class="origin-section">
+                        <h4 class="origin-title">🔔 主要起源</h4>
+                        <ul class="origin-list">
+                            <li><strong>子姓钟氏</strong>：源于宋国，商汤后裔以邑为氏，宋桓公曾孙伯宗仕晋后逃奔楚国，在锺离食采</li>
+                            <li><strong>嬴姓钟氏</strong>：复姓钟离氏简化而来，出自周代伯益后人封在钟离邑，后建立钟离国</li>
+                            <li><strong>少数民族改姓</strong>：畲族、满族等少数民族中有改姓钟氏的情况，体现了多民族融合</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detailed-info">
+                        <h4 class="detail-title">🎵 历史发展脉络</h4>
+                        <p class="detail-text">春秋时期钟离国被楚国吞并，国人以钟离为氏，后来一部分简化为锺氏。楚汉之际，锺离昧为项羽部将，其子改姓锺。钟姓历史上分布重心在江南地区，形成了以江西、湖南为中心的南方钟姓人口聚集区。</p>
+                    </div>
+                    
+                    <div class="cultural-info">
+                        <h4>🎵 文化内涵与传承</h4>
+                        <p><strong>郡望</strong>：颍川郡（今河南禹州）、竟陵郡（今湖北钟祥）</p>
+                        <p><strong>堂号</strong>：四德堂、颍川堂、知音堂、敬爱堂、大宗堂</p>
+                        <p><strong>文化传承</strong>："钟"象征时间与和谐，体现天人合一思想。钟姓是畲族和客家大姓，承载着深厚的音乐文化传统。</p>
+                    </div>
+                    
+                    <div class="migration-info">
+                        <h4 class="detail-title">🌍 迁徙与分布</h4>
+                        <p class="detail-text"><strong>历史迁徙</strong>：从中原向江南迁移，在江西、福建、广东形成聚居区。<strong>现代分布</strong>：主要分布在广东、江西、四川、广西、香港等地，海外华人社区中也有较多钟姓族人。</p>
+                    </div>
+                    
+                    <div class="famous-figures">
+                        <h4 class="detail-title">🌟 历史名人</h4>
+                        <p class="detail-text">钟繇（东汉书法家）、钟会（三国时期名将）、钟子期（春秋时期音乐家，伯牙知音）、钟嵘（南朝文学理论家）等，在书法、音乐、文学等领域贡献卓著。</p>
+                    </div>
+                </div>
+                
+                <!-- 王姓 - 使用陈氏格式 -->
+                <div class="surname-card featured-surname" data-surname="王">
+                    <div class="surname-header">
+                        <div class="surname-char">王</div>
+                        <div class="surname-info">
+                            <h3>王氏</h3>
+                            <p class="surname-rank">中华第一大姓 | 王者之家</p>
+                        </div>
+                    </div>
+                    
+                    <div class="origin-section">
+                        <h4 class="origin-title">👑 主要起源</h4>
+                        <ul class="origin-list">
+                            <li><strong>姬姓王氏</strong>：源于周朝王室，周灵王太子姬晋因王族身份而改姓王，后裔遍布天下</li>
+                            <li><strong>子姓王氏</strong>：源于商朝末年，商纣王叔父比干因直谏被杀，其后代以王为氏</li>
+                            <li><strong>妫姓王氏</strong>：源于舜帝后代，妫满被封于陈，其后裔田和在齐国改姓田，齐国被灭后以王为姓</li>
+                            <li><strong>其他来源</strong>：包括少数民族汉化改姓、赐姓等情况，形成多源流汇合</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detailed-info">
+                        <h4 class="detail-title">🏯 历史发展脉络</h4>
+                        <p class="detail-text">王姓在秦汉时期主要分布于华北地区，后逐渐向全国各地迁徙。魏晋南北朝时期，琅琊王氏南迁成为东晋望族。唐末王潮、王审知兄弟入闽建立闽国，形成开闽王氏。明清时期人口分布更加广泛，遍布全国并开始向海外迁徙。</p>
+                    </div>
+                    
+                    <div class="cultural-info">
+                        <h4>🏯 文化内涵与传承</h4>
+                        <p><strong>郡望</strong>：琅琊、太原、京兆、天水、东海、高平、中山、章武</p>
+                        <p><strong>堂号</strong>：琅琊堂、三槐堂、太原堂、京兆堂、天水堂</p>
+                        <p><strong>文化传承</strong>："王者"体现了古代对君主德治的理想追求，王姓承载着华夏正统文化的传承使命。</p>
+                    </div>
+                    
+                    <div class="migration-info">
+                        <h4 class="detail-title">🌍 迁徙与分布</h4>
+                        <p class="detail-text"><strong>古代迁徙</strong>：从华北向全国扩散，东晋时期南迁江南。<strong>著名支系</strong>：琅琊王氏、太原王氏、三槐王氏各有千秋。<strong>现代分布</strong>：作为中国第一大姓，遍布全国各地及海外华人社区。</p>
+                    </div>
+                    
+                    <div class="famous-figures">
+                        <h4 class="detail-title">🌟 历史名人</h4>
+                        <p class="detail-text">王翦（秦代名将）、王莽（新朝皇帝）、王羲之（书圣）、王维（唐代诗人）、王安石（北宋政治家）、王阳明（明代哲学家）等，历代政治家、文学家、艺术家层出不穷。</p>
+                    </div>
+                </div>
+                
+                <!-- 其他姓氏继续使用陈氏格式... -->
+            </div>
+            
+            <div class="related-section">
+                <h2 class="related-title">🔗 相关文化资源</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-item">
+                        <div class="resource-icon">📜</div>
+                        <h3 class="resource-name">《传灯》族谱指南</h3>
+                        <p class="resource-desc">新加坡根缘文化学会陈业雄会长著作<br>华人家谱建修权威指南</p>
+                        <div class="qr-placeholder">
+                            <img src="https://github.com/jtsgai/pdf-downloads/blob/main/images/qr-code.png?raw=true" alt="下载二维码" class="qr-code-img">
+                            <p class="qr-text">扫码下载完整版</p>
+                            <p class="qr-url">qrco.de/bgBdoN</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <div class="resource-icon">🎓</div>
+                        <h3 class="resource-name">文化讲座报名</h3>
+                        <p class="resource-desc">道家文化、AI修谱与易经<br>2025年9月 海南会馆</p>
+                        <div class="qr-placeholder">
+                            <div class="qr-code">📞</div>
+                            <p class="qr-text">报名热线</p>
+                            <p class="qr-url">9272 8933 锺先生</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <div class="resource-icon">🤖</div>
+                        <h3 class="resource-name">AI修谱服务</h3>
+                        <p class="resource-desc">传统文化与现代科技结合<br>智能化族谱编制服务</p>
+                        <div class="qr-placeholder">
+                            <div class="qr-code">📱</div>
+                            <p class="qr-text">联系人</p>
+                            <p class="qr-url">91160699 拓先生</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <div class="resource-icon">🏮</div>
+                        <h3 class="resource-name">根缘文化学会</h3>
+                        <p class="resource-desc">新加坡华族文化传承组织<br>致力于族谱文化推广</p>
+                        <div class="qr-placeholder">
+                            <div class="qr-code">🔧</div>
+                            <p class="qr-text">官方网站</p>
+                            <p class="qr-url">正在AI升级</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🏮 传承华族文化 · 弘扬姓氏智慧 🏮</p>
+            <p>新加坡根缘文化学会 · 道家文化与AI修谱讲座配套资料</p>
+            <p>📞 咨询热线：9272 8933 锺先生 | 📧 联系邮箱：info@rootsculture.sg</p>
+        </div>
+        
+        <div class="decorative-border"></div>
+    </div>
+
+    <script>
+        // 页面加载完成后的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.surname-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // 资源卡片动画
+            const resourceCards = document.querySelectorAll('.resource-item');
+            resourceCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, (cards.length * 100) + (index * 150));
+            });
+        });
+        
+        // 点击姓氏卡片的交互效果
+        document.querySelectorAll('.surname-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // 移除其他卡片的活跃状态
+                document.querySelectorAll('.surname-card').forEach(c => {
+                    c.classList.remove('active-card');
+                });
+                
+                // 添加活跃状态
+                this.classList.add('active-card');
+            });
+        });
+    </script>
+</body>
+</html>
